@@ -1,0 +1,26 @@
+{
+    "app": {
+        "title": "MiniGIS Dashboard",
+        "subtitle": "Visualization Platform"
+    },
+    "header": {
+        "addLayer": "Add Layer",
+        "addPoint": "Add Point"
+    },
+    "sidebar": {
+        "workspace": "Workspace",
+        "tabs": "Tabs",
+        "museums": "Museums",
+        "nature": "Nature",
+        "filters": "Filters",
+        "categoryFilter": "Category Filter",
+        "ratingFilter": "Rating Filter",
+        "layers": "Layers",
+        "pointsLayer": "Points Layer",
+        "polygonLayer": "Polygon Layer"
+    },
+    "map": {
+        "container": "Map Container",
+        "description": "map.ir will render here"
+    }
+}

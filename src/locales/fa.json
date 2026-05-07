@@ -1,0 +1,26 @@
+{
+    "app": {
+        "title": "داشبورد MiniGIS",
+        "subtitle": "پلتفرم مصورسازی "
+    },
+    "header": {
+        "addLayer": "اضافه کردن لایه",
+        "addPoint": "اضافه کردن نقطه"
+    },
+    "sidebar": {
+        "workspace": "فضای کاری",
+        "tabs": "تب‌ها",
+        "museums": "موزه‌ها",
+        "nature": "طبیعت",
+        "filters": "فیلترها",
+        "categoryFilter": "فیلتر دسته‌بندی",
+        "ratingFilter": "فیلتر امتیاز",
+        "layers": "لایه‌ها",
+        "pointsLayer": "لایه نقاط",
+        "polygonLayer": "لایه چندضلعی‌ها"
+    },
+    "map": {
+        "container": "محتوای نقشه",
+        "description": "map.ir در اینجا نمایش داده می‌شود"
+    }
+}
