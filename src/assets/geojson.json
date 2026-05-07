@@ -1,0 +1,519 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.389, 35.6892]
+      },
+      "properties": {
+        "id": 1,
+        "name_en": "Azadi Tower",
+        "name_fa": "برج آزادی",
+        "category": "landmark",
+        "subcategory": "monument",
+        "description": "Iconic Tehran landmark symbolizing freedom",
+        "visit_fee_irr": 50000,
+        "rating": 4.8,
+        "year_built": 1971,
+        "opening_hours": "9:00-17:00",
+        "contact_phone": "+9821-12345678",
+        "is_accessible": true,
+        "marker_color": "#e63946",
+        "marker_size": 10,
+        "popup_text": "🕌 Azadi Tower – The gateway to Tehran"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4209, 35.7018]
+      },
+      "properties": {
+        "id": 2,
+        "name_en": "Milad Tower",
+        "name_fa": "برج میلاد",
+        "category": "landmark",
+        "subcategory": "tower",
+        "description": "6th tallest telecommunication tower in the world",
+        "visit_fee_irr": 150000,
+        "rating": 4.6,
+        "year_built": 2008,
+        "height_m": 435,
+        "has_restaurant": true,
+        "marker_color": "#f4a261",
+        "marker_size": 10,
+        "popup_text": "🗼 Milad Tower – Panoramic view of Tehran"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.3917, 35.6806]
+      },
+      "properties": {
+        "id": 3,
+        "name_en": "Tehran Grand Bazaar",
+        "name_fa": "بازار بزرگ تهران",
+        "category": "market",
+        "subcategory": "traditional_bazaar",
+        "description": "Historic market with spices, carpets, and jewelry",
+        "visit_fee_irr": 0,
+        "rating": 4.5,
+        "year_built": 1800,
+        "shop_count": 10000,
+        "is_indoors": true,
+        "marker_color": "#2a9d8f",
+        "popup_text": "🛍️ Grand Bazaar – A bustling maze of commerce"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4346, 35.7033]
+      },
+      "properties": {
+        "id": 4,
+        "name_en": "Tabiat Bridge",
+        "name_fa": "پل طبیعت",
+        "category": "bridge",
+        "subcategory": "pedestrian",
+        "description": "Award-winning pedestrian bridge connecting two parks",
+        "visit_fee_irr": 0,
+        "rating": 4.9,
+        "year_built": 2014,
+        "length_m": 270,
+        "has_cafe": true,
+        "marker_color": "#118ab2",
+        "popup_text": "🌉 Tabiat Bridge – Architectural masterpiece"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4193, 35.7262]
+      },
+      "properties": {
+        "id": 5,
+        "name_en": "Sa'dabad Complex",
+        "name_fa": "مجموعه سعدآباد",
+        "category": "museum",
+        "subcategory": "palace",
+        "description": "Former royal summer residence with 18 museums",
+        "visit_fee_irr": 200000,
+        "rating": 4.7,
+        "year_built": 1890,
+        "area_hectares": 110,
+        "has_garden": true,
+        "marker_color": "#8ecae6",
+        "popup_text": "🏛️ Sa'dabad – Royal Qajar and Pahlavi era"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4454, 35.6862]
+      },
+      "properties": {
+        "id": 6,
+        "name_en": "Golestan Palace",
+        "name_fa": "کاخ گلستان",
+        "category": "museum",
+        "subcategory": "palace",
+        "description": "UNESCO World Heritage site, Qajar dynasty",
+        "visit_fee_irr": 150000,
+        "rating": 4.9,
+        "year_built": 1865,
+        "has_garden": true,
+        "is_unesco": true,
+        "marker_color": "#ffb703",
+        "popup_text": "🏺 Golestan Palace – Masterpiece of Qajar art"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4245, 35.6885]
+      },
+      "properties": {
+        "id": 7,
+        "name_en": "National Museum of Iran",
+        "name_fa": "موزه ملی ایران",
+        "category": "museum",
+        "subcategory": "archaeology",
+        "description": "Iran's most important archaeological museum",
+        "visit_fee_irr": 100000,
+        "rating": 4.6,
+        "year_built": 1937,
+        "artifact_count": 300000,
+        "marker_color": "#fb8500",
+        "popup_text": "🏺 National Museum – Ancient Persian artifacts"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.3897, 35.7565]
+      },
+      "properties": {
+        "id": 8,
+        "name_en": "Tochal Telecabin",
+        "name_fa": "تله‌کابین توچال",
+        "category": "recreation",
+        "subcategory": "cable_car",
+        "description": "Mountain cable car with spectacular views",
+        "visit_fee_irr": 300000,
+        "rating": 4.7,
+        "peak_altitude_m": 3740,
+        "has_ski_slope": true,
+        "marker_color": "#219ebc",
+        "popup_text": "⛰️ Tochal – Hiking and skiing above Tehran"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4085, 35.6997]
+      },
+      "properties": {
+        "id": 9,
+        "name_en": "Tehran Museum of Contemporary Art",
+        "name_fa": "موزه هنرهای معاصر تهران",
+        "category": "museum",
+        "subcategory": "art",
+        "description": "One of the largest collections of Western modern art in Asia",
+        "visit_fee_irr": 80000,
+        "rating": 4.5,
+        "year_built": 1977,
+        "has_works_by": "Picasso, Warhol, Pollock",
+        "marker_color": "#9c89b8",
+        "popup_text": "🎨 Contemporary Art Museum – Masterpieces inside"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.3397, 35.7061]
+      },
+      "properties": {
+        "id": 10,
+        "name_en": "Chitgar Lake",
+        "name_fa": "دریاچه چیتگر",
+        "category": "nature",
+        "subcategory": "lake",
+        "description": "Artificial lake with recreational facilities",
+        "visit_fee_irr": 0,
+        "rating": 4.3,
+        "area_hectares": 130,
+        "has_boat_rental": true,
+        "marker_color": "#48cae4",
+        "popup_text": "🌊 Chitgar Lake – Pedal boating and jogging paths"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.5164, 35.7284]
+      },
+      "properties": {
+        "id": 11,
+        "name_en": "Pardisan Park",
+        "name_fa": "پارک پردیسان",
+        "category": "park",
+        "subcategory": "urban_park",
+        "description": "Large environmental park with wildlife",
+        "visit_fee_irr": 20000,
+        "rating": 4.4,
+        "area_hectares": 270,
+        "has_zoo": true,
+        "marker_color": "#a8e6cf",
+        "popup_text": "🌳 Pardisan – Nature and science park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [51.4819, 35.7757]
+      },
+      "properties": {
+        "id": 12,
+        "name_en": "Darakeh",
+        "name_fa": "درکه",
+        "category": "nature",
+        "subcategory": "hiking_trail",
+        "description": "Popular mountain hiking trail with stream",
+        "visit_fee_irr": 0,
+        "rating": 4.7,
+        "difficulty": "moderate",
+        "has_teahouse": true,
+        "marker_color": "#b7e4c7",
+        "popup_text": "🥾 Darakeh – Fresh air and traditional restaurants"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [51.41, 35.69],
+          [51.415, 35.695],
+          [51.42, 35.7],
+          [51.425, 35.705],
+          [51.43, 35.71],
+          [51.435, 35.715],
+          [51.44, 35.72],
+          [51.445, 35.725]
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "name_en": "Valiasr Street",
+        "name_fa": "خیابان ولیعصر",
+        "type": "road",
+        "subtype": "main_avenue",
+        "description": "Longest street in the Middle East, lined with plane trees",
+        "color": "#f4a261",
+        "stroke_width": 4,
+        "length_km": 18,
+        "one_way": false,
+        "traffic_level": "high",
+        "popular_for": "shopping, cafes, galleries"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [51.38, 35.7],
+          [51.39, 35.71],
+          [51.4, 35.72],
+          [51.41, 35.73],
+          [51.42, 35.74]
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "name_en": "Metro Line 1 (northern section)",
+        "name_fa": "خط ۱ مترو",
+        "type": "transit",
+        "subtype": "metro",
+        "description": "First and busiest Tehran metro line",
+        "color": "#e63946",
+        "stroke_width": 3,
+        "daily_ridership": 800000,
+        "num_stations": 32,
+        "operator": "Tehran Metro"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [51.32, 35.63],
+          [51.34, 35.65],
+          [51.36, 35.67],
+          [51.38, 35.69],
+          [51.4, 35.71],
+          [51.42, 35.73],
+          [51.44, 35.75]
+        ]
+      },
+      "properties": {
+        "id": 15,
+        "name_en": "Tehran-North Highway",
+        "name_fa": "بزرگراه تهران-شمال",
+        "type": "highway",
+        "subtype": "mountain_road",
+        "description": "Scenic route to Alborz mountains",
+        "color": "#2a9d8f",
+        "stroke_width": 5,
+        "max_speed_kph": 80,
+        "toll": true,
+        "seasonal_closure": "winter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [51.38, 35.71],
+            [51.4, 35.71],
+            [51.4, 35.73],
+            [51.38, 35.73],
+            [51.38, 35.71]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "name_en": "Ferdowsi Square Area",
+        "name_fa": "میدان فردوسی",
+        "type": "district",
+        "subtype": "historical_business",
+        "description": "Heart of central Tehran with historic buildings",
+        "fill_color": "#ffd166",
+        "stroke_color": "#d62828",
+        "fill_opacity": 0.6,
+        "avg_rent_per_sqm_irr": 80000000,
+        "main_industry": "printing, publishing, electronics"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [51.42, 35.74],
+            [51.44, 35.74],
+            [51.44, 35.76],
+            [51.42, 35.76],
+            [51.42, 35.74]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "name_en": "Elahiyeh District",
+        "name_fa": "محله الهیه",
+        "type": "neighborhood",
+        "subtype": "upscale_residential",
+        "description": "Affluent area with embassies and luxury shops",
+        "fill_color": "#c77dff",
+        "stroke_color": "#7209b7",
+        "fill_opacity": 0.5,
+        "avg_house_price_usd_per_m2": 3000,
+        "num_embassies": 12,
+        "green_score": 8.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [51.34, 35.67],
+            [51.36, 35.67],
+            [51.36, 35.69],
+            [51.34, 35.69],
+            [51.34, 35.67]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "name_en": "Tehran University Campus",
+        "name_fa": "پردیس دانشگاه تهران",
+        "type": "educational",
+        "subtype": "university",
+        "description": "Main campus of Iran's oldest university",
+        "fill_color": "#bde0fe",
+        "stroke_color": "#023e8a",
+        "fill_opacity": 0.4,
+        "student_count": 32000,
+        "faculty_count": 1500,
+        "established_year": 1934
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [51.46, 35.68],
+            [51.48, 35.68],
+            [51.48, 35.7],
+            [51.46, 35.7],
+            [51.46, 35.68]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "name_en": "Tehran International Fairground",
+        "name_fa": "محل دائمی نمایشگاه‌های بین‌المللی تهران",
+        "type": "commercial",
+        "subtype": "exhibition",
+        "description": "Venue for trade fairs and expos",
+        "fill_color": "#fdffb6",
+        "stroke_color": "#9c6f3f",
+        "fill_opacity": 0.5,
+        "annual_events": 35,
+        "area_sqm": 120000,
+        "parking_capacity": 5000
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [51.32, 35.62],
+            [51.34, 35.62],
+            [51.34, 35.64],
+            [51.32, 35.64],
+            [51.32, 35.62]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "name_en": "Azadi Stadium Precinct",
+        "name_fa": "مجموعه ورزشی آزادی",
+        "type": "sports",
+        "subtype": "stadium",
+        "description": "Largest stadium in Iran, home to national football team",
+        "fill_color": "#caffbf",
+        "stroke_color": "#2b9348",
+        "fill_opacity": 0.5,
+        "capacity": 78000,
+        "built_year": 1971,
+        "has_track": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [51.3889, 35.7039] },
+      "properties": { "id": 21, "name_en": "Tehran City Theater", "name_fa": "تئاتر شهر", "category": "culture", "rating": 4.4, "marker_color": "#9c89b8" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [51.4322, 35.7456] },
+      "properties": { "id": 22, "name_en": "Javaheri Garden", "name_fa": "باغ جواهری", "category": "park", "rating": 4.2, "marker_color": "#a8e6cf" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [51.3527, 35.6883] },
+      "properties": { "id": 23, "name_en": "Shahr-e Rey Metro Station", "name_fa": "ایستگاه مترو شهرری", "category": "transit", "marker_color": "#e9c46a" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [51.4769, 35.7892] },
+      "properties": { "id": 24, "name_en": "Niavaran Palace", "name_fa": "کاخ نیاوران", "category": "museum", "rating": 4.8, "marker_color": "#f4a261" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [51.5042, 35.8084] },
+      "properties": { "id": 25, "name_en": "Darband", "name_fa": "دربند", "category": "nature", "rating": 4.6, "marker_color": "#2a9d8f" }
+    }
+  ]
+}
