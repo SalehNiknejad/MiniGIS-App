@@ -230,12 +230,7 @@ export function MapView() {
             <strong>${properties?.subtype ?? "-"}</strong>
           </div>
 
-          <div>
-            <span>شفافیت</span>
-            <strong>
-              ${properties?.fill_opacity ?? "-"}
-            </strong>
-          </div>
+
 
           <div>
             <span>اطلاعات</span>
