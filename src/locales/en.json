@@ -5,7 +5,9 @@
     },
     "header": {
         "addLayer": "Add Layer",
-        "addPoint": "Add Point"
+        "addPoint": "Add Point",
+        "saveFilter": "Save Filter",
+        "noSavedViews": "No saved filter views"
     },
     "sidebar": {
         "workspace": "Workspace",
@@ -15,6 +17,18 @@
         "filters": "Filters",
         "categoryFilter": "Category Filter",
         "ratingFilter": "Rating Filter",
+        "visitFeeFilter": "Visit Fee",
+        "visitFeeAll": "All Fees",
+        "visitFeeFree": "Free",
+        "yearBuiltFilter": "Year Built",
+        "yearBuiltAll": "All Years",
+        "currency": "IRR",
+        "allCategories": "All",
+        "landmarks": "Landmarks",
+        "ratingAll": "All",
+        "rating3plus": "3+",
+        "rating4plus": "4+",
+        "rating45": "4.5+",
         "layers": "Layers",
         "pointsLayer": "Points Layer",
         "polygonLayer": "Polygon Layer"

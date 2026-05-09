@@ -5,7 +5,9 @@
     },
     "header": {
         "addLayer": "اضافه کردن لایه",
-        "addPoint": "اضافه کردن نقطه"
+        "addPoint": "اضافه کردن نقطه",
+        "saveFilter": "ذخیره فیلتر",
+        "noSavedViews": "هیچ نمای ذخیره‌شده‌ای وجود ندارد"
     },
     "sidebar": {
         "workspace": "فضای کاری",
@@ -15,6 +17,18 @@
         "filters": "فیلترها",
         "categoryFilter": "فیلتر دسته‌بندی",
         "ratingFilter": "فیلتر امتیاز",
+        "visitFeeFilter": "هزینه بازدید",
+        "visitFeeAll": "همه هزینه‌ها",
+        "visitFeeFree": "رایگان",
+        "yearBuiltFilter": "سال ساخت",
+        "yearBuiltAll": "همه سال‌ها",
+        "currency": "تومان",
+        "allCategories": "همه",
+        "landmarks": "جاذبه‌ها",
+        "ratingAll": "همه",
+        "rating3plus": "۳+",
+        "rating4plus": "۴+",
+        "rating45": "۴.۵+",
         "layers": "لایه‌ها",
         "pointsLayer": "لایه نقاط",
         "polygonLayer": "لایه چندضلعی‌ها"

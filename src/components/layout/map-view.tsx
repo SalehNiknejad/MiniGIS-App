@@ -1,6 +1,6 @@
 import "maplibre-gl/dist/maplibre-gl.css"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import maplibregl from "maplibre-gl"
 import type GeoJSON from "geojson"
 import { useMapStore } from "@/store/map-store"
@@ -15,8 +15,52 @@ export function MapView() {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   const layers = useMapStore((state) => state.layers)
+  const currentFilter = useMapStore((state) => state.currentFilter)
   const geojson = useGeoStore((state) => state.data)
   const addFeature = useGeoStore((state) => state.addFeature)
+
+  const filteredGeojson = useMemo(() => {
+    return {
+      ...geojson,
+      features: geojson.features.filter((feature) => {
+        const props = feature.properties as Record<string, any> | undefined
+
+        if (!props) {
+          return true
+        }
+
+        if (
+          currentFilter.category !== "all" &&
+          String(props.category) !== currentFilter.category
+        ) {
+          return false
+        }
+
+        if (
+          currentFilter.visitFeeIrr !== "all" &&
+          String(props.visit_fee_irr ?? "") !== currentFilter.visitFeeIrr
+        ) {
+          return false
+        }
+
+        if (
+          currentFilter.yearBuilt !== "all" &&
+          String(props.year_built ?? "") !== currentFilter.yearBuilt
+        ) {
+          return false
+        }
+
+        if (
+          currentFilter.rating > 0 &&
+          Number(props.rating ?? 0) < currentFilter.rating
+        ) {
+          return false
+        }
+
+        return true
+      }),
+    }
+  }, [geojson, currentFilter])
 
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
 
@@ -78,8 +122,8 @@ export function MapView() {
 
     if (!source) return
 
-    source.setData(geojson)
-  }, [geojson])
+    source.setData(filteredGeojson)
+  }, [filteredGeojson])
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return
