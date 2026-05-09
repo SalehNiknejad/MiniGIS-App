@@ -141,4 +141,91 @@
   html {
     @apply font-sans;
   }
+
+  .maplibregl-popup-content {
+    padding: 0 !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .maplibregl-popup-tip {
+    border-top-color: #111827 !important;
+  }
+
+  .custom-popup {
+    font-family: rubik;
+  }
+
+  .popup-card {
+    min-width: 245px;
+    background: #111827;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 16px;
+    overflow: hidden;
+    direction: rtl;
+  }
+
+  .popup-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .popup-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .popup-subtitle {
+    font-size: 12px;
+    opacity: .7;
+    margin-top: 4px;
+  }
+
+  .popup-rating {
+    background: rgba(255, 255, 255, .08);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+  }
+
+  .popup-body {
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.8;
+    opacity: .9;
+  }
+
+  .popup-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    padding: 16px;
+    background: rgba(255, 255, 255, .03);
+  }
+
+  .popup-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .popup-grid span {
+    font-size: 11px;
+    opacity: .6;
+  }
+
+  .popup-grid strong {
+    font-size: 13px;
+    font-weight: 600;
+  }
 }

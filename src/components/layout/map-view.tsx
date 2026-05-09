@@ -94,6 +94,90 @@ export function MapView() {
           "fill-opacity": ["coalesce", ["get", "fill_opacity"], 0.5],
         },
       })
+
+      const popup = new maplibregl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        className: "custom-popup",
+      })
+
+      map.on("mouseenter", "points", (e) => {
+        map.getCanvas().style.cursor = "pointer"
+
+        const feature = e.features?.[0]
+
+        if (!feature) return
+
+        const coordinates = (
+          feature.geometry as GeoJSON.Point
+        ).coordinates.slice() as [number, number]
+
+        const properties = feature.properties
+
+        popup
+          .setLngLat(coordinates)
+          .setHTML(
+            `
+            <div class="popup-card">
+
+              <div class="popup-header">
+                <div>
+                  <h3 class="popup-title">
+                    ${properties?.name_fa ?? "-"}
+                  </h3>
+
+                  <p class="popup-subtitle">
+                    ${properties?.name_en ?? "-"}
+                  </p>
+                </div>
+
+                <div class="popup-rating">
+                  ⭐ ${properties?.rating ?? "-"}
+                </div>
+              </div>
+
+              <div class="popup-body">
+                ${properties?.description ?? "بدون توضیحات"}
+              </div>
+
+              <div class="popup-grid">
+
+                <div>
+                  <span>دسته‌بندی</span>
+                  <strong>${properties?.category ?? "-"}</strong>
+                </div>
+
+                <div>
+                  <span>زیر دسته</span>
+                  <strong>${properties?.subcategory ?? "-"}</strong>
+                </div>
+
+                <div>
+                  <span>هزینه بازدید</span>
+
+                  <strong>
+                    ${
+                      properties?.visit_fee_irr
+                        ? `${Number(
+                            properties.visit_fee_irr
+                          ).toLocaleString()} تومان`
+                        : "رایگان"
+                    }
+                  </strong>
+                </div>
+
+                <div>
+                  <span>سال ساخت</span>
+                  <strong>${properties?.year_built ?? "-"}</strong>
+                </div>
+
+              </div>
+
+            </div>
+          `
+          )
+          .addTo(map)
+      })
     })
 
     map.addControl(new maplibregl.NavigationControl(), "bottom-right")
