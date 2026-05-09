@@ -1,10 +1,14 @@
 import "maplibre-gl/dist/maplibre-gl.css"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import maplibregl from "maplibre-gl"
 import type GeoJSON from "geojson"
 import { useMapStore } from "@/store/map-store"
 import { useGeoStore } from "@/store/geojson-store"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog"
+import { Input } from "../ui/input"
+import { Textarea } from "../ui/textarea"
+import { Button } from "../ui/button"
 
 export function MapView() {
   const mapRef = useRef<maplibregl.Map | null>(null)
@@ -13,6 +17,57 @@ export function MapView() {
   const layers = useMapStore((state) => state.layers)
   const geojson = useGeoStore((state) => state.data)
   const addFeature = useGeoStore((state) => state.addFeature)
+
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+
+  const [pendingCoordinates, setPendingCoordinates] = useState<
+    [number, number] | null
+  >(null)
+
+  const [formData, setFormData] = useState({
+    name_fa: "",
+    name_en: "",
+    description: "",
+    category: "",
+    subcategory: "",
+    rating: 5,
+  })
+
+  const handleCreateFeature = () => {
+    if (!pendingCoordinates) return
+
+    addFeature({
+      type: "Feature",
+
+      geometry: {
+        type: "Point",
+        coordinates: pendingCoordinates,
+      },
+
+      properties: {
+        id: Date.now(),
+
+        ...formData,
+
+        marker_color: "#ff0000",
+
+        marker_size: 8,
+      },
+    })
+
+    setIsCreateModalOpen(false)
+
+    setPendingCoordinates(null)
+
+    setFormData({
+      name_fa: "",
+      name_en: "",
+      description: "",
+      category: "",
+      subcategory: "",
+      rating: 5,
+    })
+  }
 
   useEffect(() => {
     const map = mapRef.current
@@ -104,29 +159,8 @@ export function MapView() {
       })
 
       map.on("click", (e) => {
-        addFeature({
-          type: "Feature",
-
-          geometry: {
-            type: "Point",
-
-            coordinates: [e.lngLat.lng, e.lngLat.lat],
-          },
-
-          properties: {
-            id: Date.now(),
-
-            name_fa: "نقطه جدید",
-
-            name_en: "New Point",
-
-            category: "custom",
-
-            marker_color: "#ff0000",
-
-            rating: 5,
-          },
-        })
+        setPendingCoordinates([e.lngLat.lng, e.lngLat.lat])
+        setIsCreateModalOpen(true)
       })
 
       const popup = new maplibregl.Popup({
@@ -419,8 +453,91 @@ export function MapView() {
   }, [layers])
 
   return (
-    <div className="relative h-full w-full">
-      <div ref={containerRef} className="h-full w-full" />
-    </div>
+    <>
+      <div className="relative h-full w-full">
+        <div ref={containerRef} className="h-full w-full" />
+      </div>
+
+      <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle>افزودن نقطه جدید</DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            <Input
+              placeholder="نام فارسی"
+              value={formData.name_fa}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  name_fa: e.target.value,
+                }))
+              }
+            />
+
+            <Input
+              placeholder="نام انگلیسی"
+              value={formData.name_en}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  name_en: e.target.value,
+                }))
+              }
+            />
+
+            <Input
+              placeholder="دسته بندی"
+              value={formData.category}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  category: e.target.value,
+                }))
+              }
+            />
+
+            <Input
+              placeholder="زیر دسته"
+              value={formData.subcategory}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  subcategory: e.target.value,
+                }))
+              }
+            />
+
+            <Textarea
+              placeholder="توضیحات"
+              value={formData.description}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  description: e.target.value,
+                }))
+              }
+            />
+
+            <Input
+              type="number"
+              placeholder="امتیاز"
+              value={formData.rating}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  rating: Number(e.target.value),
+                }))
+              }
+            />
+
+            <Button className="w-full" onClick={handleCreateFeature}>
+              ذخیره نقطه
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }
