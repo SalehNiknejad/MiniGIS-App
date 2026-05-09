@@ -3,10 +3,13 @@ import "maplibre-gl/dist/maplibre-gl.css"
 import { useEffect, useRef } from "react"
 import maplibregl from "maplibre-gl"
 
+import type GeoJSON from "geojson"
 import type { FeatureCollection } from "geojson"
 
 import geojsonData from "@/assets/geojson.json"
+
 import { useMapStore } from "@/store/map-store"
+
 export function MapView() {
   const mapRef = useRef<maplibregl.Map | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -27,7 +30,9 @@ export function MapView() {
 
     const map = new maplibregl.Map({
       container: containerRef.current,
+
       style: `https://map.ir/vector/styles/main/mapir-xyz-style.json?x-api-key=${apiKey}`,
+
       center: [51.389, 35.6892],
       zoom: 11,
 
@@ -49,11 +54,16 @@ export function MapView() {
         id: "points",
         type: "circle",
         source: "geo",
+
         filter: ["==", ["geometry-type"], "Point"],
 
         paint: {
-          "circle-radius": 6,
-          "circle-color": "#e63946",
+          "circle-radius": ["coalesce", ["get", "marker_size"], 6],
+
+          "circle-color": ["coalesce", ["get", "marker_color"], "#e63946"],
+
+          "circle-stroke-width": 2,
+          "circle-stroke-color": "#ffffff",
         },
       })
 
@@ -61,11 +71,13 @@ export function MapView() {
         id: "lines",
         type: "line",
         source: "geo",
+
         filter: ["==", ["geometry-type"], "LineString"],
 
         paint: {
-          "line-color": "#2a9d8f",
-          "line-width": 3,
+          "line-color": ["coalesce", ["get", "color"], "#2a9d8f"],
+
+          "line-width": ["coalesce", ["get", "stroke_width"], 3],
         },
       })
 
@@ -73,11 +85,13 @@ export function MapView() {
         id: "polygons",
         type: "fill",
         source: "geo",
+
         filter: ["==", ["geometry-type"], "Polygon"],
 
         paint: {
-          "fill-color": "#ffd166",
-          "fill-opacity": 0.5,
+          "fill-color": ["coalesce", ["get", "fill_color"], "#ffd166"],
+
+          "fill-opacity": ["coalesce", ["get", "fill_opacity"], 0.5],
         },
       })
     })
