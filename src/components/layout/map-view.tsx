@@ -262,6 +262,91 @@ export function MapView() {
 
         polygonPopup.remove()
       })
+
+      const linePopup = new maplibregl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        className: "custom-popup",
+      })
+
+      map.on("mouseenter", "lines", (e) => {
+        map.getCanvas().style.cursor = "pointer"
+
+        const feature = e.features?.[0]
+
+        if (!feature) return
+
+        const coordinates = e.lngLat
+
+        const properties = feature.properties
+
+        linePopup
+          .setLngLat(coordinates)
+          .setHTML(
+            `
+      <div class="popup-card">
+
+        <div class="popup-header">
+          <div>
+            <h3 class="popup-title">
+              ${properties?.name_fa ?? "-"}
+            </h3>
+
+            <p class="popup-subtitle">
+              ${properties?.name_en ?? "-"}
+            </p>
+          </div>
+        </div>
+
+        <div class="popup-body">
+          ${properties?.description ?? "بدون توضیحات"}
+        </div>
+
+        <div class="popup-grid">
+
+          <div>
+            <span>نوع مسیر</span>
+            <strong>${properties?.type ?? "-"}</strong>
+          </div>
+
+          <div>
+            <span>زیر نوع</span>
+            <strong>${properties?.subtype ?? "-"}</strong>
+          </div>
+
+          <div>
+            <span>طول</span>
+            <strong>
+              ${properties?.length_km ?? "-"} km
+            </strong>
+          </div>
+
+          <div>
+            <span>ترافیک</span>
+            <strong>
+              ${properties?.traffic_level ?? "-"}
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+    `
+          )
+          .addTo(map)
+      })
+
+      map.on("mouseleave", "lines", () => {
+        map.getCanvas().style.cursor = ""
+
+        linePopup.remove()
+      })
+
+      map.on("mouseleave", "points", () => {
+        map.getCanvas().style.cursor = ""
+
+        popup.remove()
+      })
     })
 
     map.addControl(new maplibregl.NavigationControl(), "bottom-right")
