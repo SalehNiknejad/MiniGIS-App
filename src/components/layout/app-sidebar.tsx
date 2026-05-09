@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
+import { useMapStore } from "@/store/map-store"
 
 type AppSidebarProps = {
   mobile?: boolean
@@ -10,6 +11,8 @@ type AppSidebarProps = {
 export function AppSidebar({ mobile = false }: AppSidebarProps) {
   const { t, i18n } = useTranslation()
   const textAlign = i18n.language === "fa" ? "text-right" : "text-left"
+  const layers = useMapStore((state) => state.layers)
+  const toggleLayer = useMapStore((state) => state.toggleLayer)
 
   return (
     <aside
@@ -70,13 +73,26 @@ export function AppSidebar({ mobile = false }: AppSidebarProps) {
             </h3>
 
             <div className="space-y-2">
-              <div className="rounded-lg bg-muted p-3 text-sm">
-                {t("sidebar.pointsLayer")}
-              </div>
+              <button
+                onClick={() => toggleLayer("points")}
+                className="w-full rounded-lg bg-muted p-3 text-sm"
+              >
+                Points : {layers.points ? "ON" : "OFF"}
+              </button>
 
-              <div className="rounded-lg bg-muted p-3 text-sm">
-                {t("sidebar.polygonLayer")}
-              </div>
+              <button
+                onClick={() => toggleLayer("lines")}
+                className="w-full rounded-lg bg-muted p-3 text-sm"
+              >
+                Lines : {layers.lines ? "ON" : "OFF"}
+              </button>
+
+              <button
+                onClick={() => toggleLayer("polygons")}
+                className="w-full rounded-lg bg-muted p-3 text-sm"
+              >
+                Polygons : {layers.polygons ? "ON" : "OFF"}
+              </button>
             </div>
           </section>
         </div>
