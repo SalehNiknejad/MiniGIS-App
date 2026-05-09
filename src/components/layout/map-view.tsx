@@ -2,26 +2,34 @@ import "maplibre-gl/dist/maplibre-gl.css"
 
 import { useEffect, useRef } from "react"
 import maplibregl from "maplibre-gl"
-
 import type GeoJSON from "geojson"
-import type { FeatureCollection } from "geojson"
-
-import geojsonData from "@/assets/geojson.json"
-
 import { useMapStore } from "@/store/map-store"
+import { useGeoStore } from "@/store/geojson-store"
 
 export function MapView() {
   const mapRef = useRef<maplibregl.Map | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   const layers = useMapStore((state) => state.layers)
+  const geojson = useGeoStore((state) => state.data)
+  const addFeature = useGeoStore((state) => state.addFeature)
+
+  useEffect(() => {
+    const map = mapRef.current
+
+    if (!map) return
+
+    const source = map.getSource("geo") as maplibregl.GeoJSONSource
+
+    if (!source) return
+
+    source.setData(geojson)
+  }, [geojson])
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return
 
     const apiKey = import.meta.env.VITE_MAPIR_API_KEY
-
-    const geojson = geojsonData as FeatureCollection
 
     maplibregl.setRTLTextPlugin(
       "https://unpkg.com/@mapbox/mapbox-gl-rtl-text@0.3.0/dist/mapbox-gl-rtl-text.js",
@@ -93,6 +101,32 @@ export function MapView() {
 
           "fill-opacity": ["coalesce", ["get", "fill_opacity"], 0.5],
         },
+      })
+
+      map.on("click", (e) => {
+        addFeature({
+          type: "Feature",
+
+          geometry: {
+            type: "Point",
+
+            coordinates: [e.lngLat.lng, e.lngLat.lat],
+          },
+
+          properties: {
+            id: Date.now(),
+
+            name_fa: "نقطه جدید",
+
+            name_en: "New Point",
+
+            category: "custom",
+
+            marker_color: "#ff0000",
+
+            rating: 5,
+          },
+        })
       })
 
       const popup = new maplibregl.Popup({
