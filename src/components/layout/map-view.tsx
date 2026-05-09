@@ -178,6 +178,90 @@ export function MapView() {
           )
           .addTo(map)
       })
+
+      const polygonPopup = new maplibregl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        className: "custom-popup",
+      })
+
+      map.on("mouseenter", "polygons", (e) => {
+        map.getCanvas().style.cursor = "pointer"
+
+        const feature = e.features?.[0]
+
+        if (!feature) return
+
+        const coordinates = e.lngLat
+
+        const properties = feature.properties
+
+        polygonPopup
+          .setLngLat(coordinates)
+          .setHTML(
+            `
+      <div class="popup-card">
+
+        <div class="popup-header">
+          <div>
+            <h3 class="popup-title">
+              ${properties?.name_fa ?? "-"}
+            </h3>
+
+            <p class="popup-subtitle">
+              ${properties?.name_en ?? "-"}
+            </p>
+          </div>
+        </div>
+
+        <div class="popup-body">
+          ${properties?.description ?? "بدون توضیحات"}
+        </div>
+
+        <div class="popup-grid">
+
+          <div>
+            <span>نوع محدوده</span>
+            <strong>${properties?.type ?? "-"}</strong>
+          </div>
+
+          <div>
+            <span>زیر دسته</span>
+            <strong>${properties?.subtype ?? "-"}</strong>
+          </div>
+
+          <div>
+            <span>شفافیت</span>
+            <strong>
+              ${properties?.fill_opacity ?? "-"}
+            </strong>
+          </div>
+
+          <div>
+            <span>اطلاعات</span>
+            <strong>
+              ${
+                properties?.main_industry ??
+                properties?.student_count ??
+                properties?.capacity ??
+                "-"
+              }
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+    `
+          )
+          .addTo(map)
+      })
+
+      map.on("mouseleave", "polygons", () => {
+        map.getCanvas().style.cursor = ""
+
+        polygonPopup.remove()
+      })
     })
 
     map.addControl(new maplibregl.NavigationControl(), "bottom-right")
